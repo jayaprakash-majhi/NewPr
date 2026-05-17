@@ -1,3 +1,12 @@
+// ===== REVEAL WEBSITE ON BUTTON CLICK =====
+function revealWebsite() {
+    const splashScreen = document.getElementById('splashScreen');
+    splashScreen.classList.add('hidden');
+    setTimeout(() => {
+        splashScreen.style.display = 'none';
+    }, 800);
+}
+
 // ===== GENERATE RANDOM FALLING STARS =====
 function generateStars() {
     const starsContainer = document.getElementById('stars');
