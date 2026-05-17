@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Birthday Means Something 🎂</title>
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Josefin+Sans:wght@400;600&family=DM+Sans:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            color: #89CFF0;
+            background: linear-gradient(135deg, #0a0f2c 0%, #1a1f3a 100%);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* ===== BACKGROUND ANIMATION ===== */
+        .background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0a0f2c 0%, #1a1f3a 50%, #0a0f2c 100%);
+            z-index: -2;
+            overflow: hidden;
+        }
+
+        .stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #FFF8F0;
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+
+            0%,
+            100% {
+                opacity: 0.3;
+            }
+
+            50% {
+                opacity: 0.9;
+            }
+        }
+
+        /* Airplane animations */
+        .airplane-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .airplane {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.4;
+            animation: fly-across 25s linear infinite;
+            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.3));
+        }
+
+        .airplane:nth-child(1) {
+            top: 15%;
+            animation-duration: 25s;
+            animation-delay: 0s;
+        }
+
+        .airplane:nth-child(2) {
+            top: 35%;
+            animation-duration: 30s;
+            animation-delay: 5s;
+            opacity: 0.3;
+        }
+
+        .airplane:nth-child(3) {
+            top: 55%;
+            animation-duration: 28s;
+            animation-delay: 10s;
+            opacity: 0.35;
+        }
+
+        .airplane:nth-child(4) {
+            top: 70%;
+            animation-duration: 32s;
+            animation-delay: 15s;
+            opacity: 0.25;
+        }
+
+        .airplane:nth-child(5) {
+            top: 25%;
+            animation-duration: 35s;
+            animation-delay: 20s;
+            opacity: 0.3;
+        }
+
+        @keyframes fly-across {
+            from {
+                left: -50px;
+                transform: translateX(0);
+            }
+
+            to {
+                left: 100%;
+                transform: translateX(0);
+            }
+        }
+
+        /* Scroll-triggered background color shift */
+        body.scroll-warm {
+            --bg-color: #2d1810;
+        }
+
+        /* ===== SECTIONS ===== */
+        section {
+            position: relative;
+            z-index: 1;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        /* ===== TYPOGRAPHY ===== */
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            color: #89CFF0;
+            text-shadow: 0 0 30px rgba(137, 207, 240, 0.4);
+            margin-bottom: 1rem;
+            animation: fade-in 1.5s ease-in;
+        }
+
+        h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            color: #FFD700;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+        }
+
+        h3 {
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 1.5rem;
+            color: #89CFF0;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #FFF8F0;
+            margin: 1rem 0;
+            max-width: 700px;
+        }
+
+        .subheading {
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 1.3rem;
+            color: #B0C4DE;
+            margin-bottom: 2rem;
+            font-weight: 400;
+            animation: fade-in 2s ease-in;
+        }
+
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== HERO SECTION ===== */
+        #hero {
+            background: transparent;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+
+            50% {
+                transform: translateX(-50%) translateY(10px);
+            }
+        }
+
+        /* ===== CARDS ===== */
+        .card {
+            background: rgba(10, 15, 44, 0.6);
+            border: 2px solid #B0C4DE;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 1rem auto;
+            max-width: 600px;
+            box-shadow: 0 8px 32px rgba(137, 207, 240, 0.1);
+            backdrop-filter: blur(10px);
+            animation: fade-in 0.8s ease-in;
+        }
+
+        .card p {
+            margin: 0;
+        }
+
+        /* ===== BUTTON ===== */
+        button {
+            font-family: 'Josefin Sans', sans-serif;
+            padding: 1.2rem 2.5rem;
+            font-size: 1.1rem;
+            background: transparent;
+            border: 2px solid #89CFF0;
+            color: #89CFF0;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            text-shadow: 0 0 10px rgba(137, 207, 240, 0.3);
+            box-shadow: 0 0 20px rgba(137, 207, 240, 0.2);
+            margin: 1rem;
+        }
+
+        button:hover {
+            background: rgba(137, 207, 240, 0.1);
+            box-shadow: 0 0 40px rgba(137, 207, 240, 0.4);
+            transform: scale(1.05);
+        }
+
+        .hidden-message {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: all 0.6s ease;
+        }
+
+        .hidden-message.revealed {
+            max-height: 300px;
+            opacity: 1;
+        }
+
+        /* ===== THINGS I KNOW SECTION ===== */
+        .traits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 2rem auto;
+            width: 100%;
+            padding: 0 1rem;
+        }
+
+        .trait-card {
+            background: rgba(10, 15, 44, 0.5);
+            border: 2px solid #B0C4DE;
+            border-radius: 12px;
+            padding: 1.5rem;
+            animation: fade-in-scale 0.8s ease-in;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .trait-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(137, 207, 240, 0.2);
+        }
+
+        .trait-card p {
+            font-size: 1rem;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        @keyframes fade-in-scale {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* ===== MEMORY SECTION ===== */
+        .memory-card {
+            background: rgba(10, 15, 44, 0.6);
+            border: 2px solid #FFD700;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 1.5rem auto;
+            max-width: 700px;
+            box-shadow: 0 8px 32px rgba(255, 215, 0, 0.15);
+            animation: fade-in 0.8s ease-in;
+            transition: transform 0.3s ease;
+        }
+
+        .memory-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .memory-card h3 {
+            color: #FFD700;
+            margin-bottom: 1rem;
+        }
+
+        .memory-card p {
+            color: #FFF8F0;
+            line-height: 1.7;
+        }
+
+        /* ===== ALBUM SECTION ===== */
+        .album-section {
+            width: 100%;
+            padding: 2rem;
+        }
+
+        .album-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .album-tab-button {
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            background: transparent;
+            border: 2px solid #B0C4DE;
+            color: #B0C4DE;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            font-family: 'Josefin Sans', sans-serif;
+        }
+
+        .album-tab-button.active {
+            background: rgba(137, 207, 240, 0.2);
+            border-color: #89CFF0;
+            color: #89CFF0;
+            box-shadow: 0 0 20px rgba(137, 207, 240, 0.3);
+        }
+
+        .album-tab-button:hover {
+            border-color: #89CFF0;
+            color: #89CFF0;
+        }
+
+        .album-content {
+            display: none;
+            animation: fade-in 0.6s ease-in;
+        }
+
+        .album-content.active {
+            display: block;
+        }
+
+        .album-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 2rem auto;
+            width: 100%;
+            padding: 0 1rem;
+        }
+
+        .album-card {
+            background: rgba(10, 15, 44, 0.6);
+            border: 2px solid #B0C4DE;
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            animation: fade-in-scale 0.8s ease-in;
+        }
+
+        .album-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(137, 207, 240, 0.3);
+            border-color: #89CFF0;
+        }
+
+        .album-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .album-card h4 {
+            font-family: 'Josefin Sans', sans-serif;
+            color: #FFD700;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .album-card p {
+            font-size: 0.95rem;
+            color: #B0C4DE;
+        }
+
+        /* GT Album specific */
+        .gt-album .album-card {
+            border-color: #FFD700;
+        }
+
+        .gt-album .album-card:hover {
+            border-color: #FFD700;
+            box-shadow: 0 12px 40px rgba(255, 215, 0, 0.2);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            h3 {
+                font-size: 1.2rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+
+            .subheading {
+                font-size: 1.1rem;
+            }
+
+            section {
+                min-height: auto;
+                padding: 1.5rem;
+            }
+
+            .traits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .album-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+
+            button {
+                padding: 1rem 2rem;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            h2 {
+                font-size: 1.4rem;
+            }
+
+            .card,
+            .memory-card {
+                padding: 1.5rem;
+            }
+
+            .album-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            }
+
+            button {
+                padding: 0.9rem 1.5rem;
+                font-size: 0.95rem;
+            }
+        }
+
+        /* ===== CLOSING CAT ===== */
+        .cat-icon {
+            font-size: 4rem;
+            margin: 2rem 0;
+            animation: gentle-bounce 2s infinite;
+        }
+
+        @keyframes gentle-bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Scroll transition effect */
+        .sunset-transition {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg,
+                    rgba(10, 15, 44, 0) 0%,
+                    rgba(45, 24, 16, 0) 50%,
+                    rgba(10, 15, 44, 0) 100%);
+            pointer-events: none;
+            z-index: 0;
+            transition: background 0.5s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- BACKGROUND ANIMATION -->
+    <div class="background-container">
+        <div class="stars" id="stars"></div>
+        <div class="airplane-container">
+            <div class="airplane">✈️</div>
+            <div class="airplane">✈️</div>
+            <div class="airplane">✈️</div>
+            <div class="airplane">✈️</div>
+            <div class="airplane">✈️</div>
+        </div>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section id="hero">
+        <div>
+            <h1>Hewoo Birthday Girl 🎂</h1>
+            <p class="subheading">Someone made this just for you.<br>No pressure. Just open it when you're ready.</p>
+            <div class="scroll-indicator">↓</div>
+        </div>
+    </section>
+
+    <!-- I SEE YOU SECTION -->
+    <section id="see-you">
+        <div class="card">
+            <h2 style="color: #89CFF0; text-shadow: 0 0 20px rgba(137, 207, 240, 0.3);">I See You</h2>
+            <p>I don't know everything you're going through right now. But I know you've been carrying a lot quietly.
+                And I just want you to know — someone notices. Not just today. Always.</p>
+        </div>
+    </section>
+
+    <!-- BIRTHDAY MESSAGE SECTION -->
+    <section id="message">
+        <div class="card">
+            <h2 style="color: #FFD700;">You Deserve This</h2>
+            <p>You deserve a birthday that actually feels like something. You deserve to feel chosen today. Even if just
+                for a little while — I hope today feels different. Because you matter more than you probably let
+                yourself believe.</p>
+        </div>
+    </section>
+
+    <!-- THINGS I KNOW SECTION -->
+    <section id="know">
+        <h2>Things I Know About You</h2>
+        <div class="traits-grid">
+            <div class="trait-card">
+                <p>You love going on long walks alone with your music on 🎵</p>
+            </div>
+            <div class="trait-card">
+                <p>You have a thing for cats and they are honestly lucky 🐱</p>
+            </div>
+            <div class="trait-card">
+                <p>Donuts, rasmalai, spicy chaat, sweets — basically your entire personality 🍩</p>
+            </div>
+            <div class="trait-card">
+                <p>Glasses since class 3 and somehow it is an entire aesthetic 👓</p>
+            </div>
+            <div class="trait-card">
+                <p>Rain hits different for you and we both know it 🌧️</p>
+            </div>
+            <div class="trait-card">
+                <p>You are an absolute menace in CODM with that sniper — MVP energy always 🎮</p>
+            </div>
+            <div class="trait-card">
+                <p>You tease your squadmates in the most chaotic friendly way 😭</p>
+            </div>
+            <div class="trait-card">
+                <p>You are naughty with your close ones and that is honestly one of the best things about you</p>
+            </div>
+            <div class="trait-card">
+                <p>You are stronger than you think — even on the days it really does not feel like it 🥲</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- HEAVY DAY SECTION -->
+    <section id="heavy-day">
+        <div>
+            <h2>For The Tough Days</h2>
+            <button onclick="toggleHeavyDayMessage()">Click this on a heavy day 🌙</button>
+            <div class="hidden-message" id="heavy-message">
+                <div class="card">
+                    <p>Hey. I know some days just feel too heavy to explain. That is okay. You do not have to be okay
+                        right now. Just know — someone out there is quietly in your corner. Always. You are not as alone
+                        as it feels.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MEMORIES SECTION -->
+    <section id="memories">
+        <h2>Our Memories Matter</h2>
+
+        <div class="memory-card">
+            <h3>The Birthday War 😭</h3>
+            <p>You once told me if you were my real life friend you would have actually celebrated my birthday. And then
+                proceeded to fight me to get my friends numbers just to scold them for not wishing me. Honestly the most
+                unhinged and wholesome thing anyone has ever done for me. 😭🫶</p>
+        </div>
+
+        <div class="memory-card">
+            <h3>The CODM Menace 🎮</h3>
+            <p>Remember our last private room match? Yeah. The one where you absolutely destroyed me. MVP. Sniper. Zero
+                remorse. You teased me the entire time and I had no defence whatsoever 😭 For the record — that rematch
+                is still pending. And this time? You are not getting away that easily. 😤 (You probably will. But let me
+                have this.)</p>
+        </div>
+
+        <div class="memory-card">
+            <h3>Late Night Squad 🌙</h3>
+            <p>Late night games, the chaos, the friendly trash talk, you somehow managing to be the most chaotic and
+                most fun person in the room at the same time. Those were genuinely some of the best nights. 🌙</p>
+        </div>
+
+        <div class="memory-card">
+            <h3>The Walks and The Rain 🌧️</h3>
+            <p>You and your walks. You and the rain. I hope wherever you go today — even if it is just outside for a bit
+                — it feels like yours. 🌧️</p>
+        </div>
+    </section>
+
+    <!-- ALBUM SECTION -->
+    <section id="albums" class="album-section">
+        <h2 style="margin-bottom: 0.5rem;">Your Loves</h2>
+        <p style="color: #B0C4DE; margin-bottom: 2rem;">A celebration of the things that make you, you</p>
+
+        <div class="album-tabs">
+            <button class="album-tab-button active" onclick="switchAlbum('gt')">GT 💛</button>
+            <button class="album-tab-button" onclick="switchAlbum('mj')">Michael Jackson 🕺</button>
+            <button class="album-tab-button" onclick="switchAlbum('nbhd')">The Neighbourhood 🖤</button>
+        </div>
+
+        <!-- GT ALBUM -->
+        <div class="album-content active gt-album" id="gt-album">
+            <h3>For The GT Fan Girl 💛</h3>
+            <div class="album-grid">
+                <div class="album-card">
+                    <div
+                        style="background: linear-gradient(135deg, #1f4788 0%, #FFD700 100%); height: 200px; display: flex; align-items: center; justify-content: center; border-radius: 8px; margin-bottom: 1rem; font-size: 3rem;">
+                        🏆</div>
+                    <h4>IPL 2022 Champions</h4>
+                    <p>Gujarat Titans' Maiden Glory</p>
+                </div>
+                <div class="album-card">
+                    <div
+                        style="background: linear-gradient(135deg, #FFD700 0%, #1f4788 100%); height: 200px; display: flex; align-items: center; justify-content: center; border-radius: 8px; margin-bottom: 1rem; font-size: 3rem;">
+                        🥈</div>
+                    <h4>IPL 2023 Runner Up</h4>
+                    <p>The Journey Continues</p>
+                </div>
+                <div class="album-card">
+                    <div
+                        style="background: linear-gradient(135deg, #0a5f7d 0%, #FFD700 100%); height: 200px; display: flex; align-items: center; justify-content: center; border-radius: 8px; margin-bottom: 1rem; font-size: 2.5rem;">
+                        🏏 ⚡</div>
+                    <h4>Shubhman Gill</h4>
+                    <p>Your Absolute Favourite 💙</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- MICHAEL JACKSON ALBUM -->
+        <div class="album-content" id="mj-album">
+            <h3>MJ Forever 🕺</h3>
+            <div class="album-grid">
+                <div class="album-card">
+                    <div
+                        style="background: linear-gradient(135deg, #1a1a1a 0%, #FFD700 100%); height: 200px; display: flex; align-items: center; justify-content: center; border-radius: 8px; margin-bottom: 1rem; font-size: 2.5rem;">
+                        🎵</div>
+                    <h4>Thriller</h4>
+                    <p>The Greatest Album</p>
+                </div>
+                <div class="album-card">
+                    <div
+                        style="background: linear-gradient(135deg, #FFD700 0%, #1a1a1a 100%); height: 200px; display: flex; align-items: center; justify-content: center; border-radius: 8px; margin-bottom: 1rem; font-size: 2.5rem;">
+                        👑</div>
+                    <h4>Billie Jean</h4>
+                    <p>Iconic. Legendary.</p>
+                </div>
+                <div class="album-card">
+                    <div
+                        style="background: linear-gradient(135deg, #1a1a1a 0%, #FFD700 100%); height: 200px; display: flex; align-items: center; justify-content: center; border-radius: 8px; margin-bottom: 1rem; font-size: 2.5rem;">
+                        ⚡</div>
+                    <h4>Beat It</h4>
+                    <p>Pure Energy</p>
+                </div>
+                <div class="album-card">
+                    <div
+                        style="background: linear-gradient(135deg, #FFD700 0%, #1a1a1a 100%); height: 200px; display: flex; align-items: center; justify-content: center; border-radius: 8px; margin-bottom: 1rem; font-size: 2.5rem;">
+                        🎸</div>
+                    <h4>Smooth Criminal</h4>
+                    <p>Smooth. Smooth. Smooth.</p>
+                </div>
+                <div class="album-card">
+                    <div
+                        style="background: linear-gradient(135deg, #1a1a1a 0%, #FFD700 100%); height: 200px; display: flex; align-items: center; justify-content: center; border-radius: 8px; margin-bottom: 1rem; font-size: 2.5rem;">
+                        🌍</div>
+                    <h4>Black or White</h4>
+                    <p>It Don't Matter</p>
+                </div>
+                <div class="album-card">
+                    <div
+                        style="background: linear-gradient(135deg, #FFD700 0%, #1a1a1a 100%); height: 200px; display: flex; align-items: center; justify-content: center; border-radius: 8px; margin-bottom: 1rem; font-size: 2.5rem;">
+                        💫</div>
+                    <h4>Man in the Mirror</h4>
+                    <p>Make a Change</p>
+                </div>
+                <div class="album-card">
+                    <div
+                        style="background: linear-gradient(135deg, #1a1a1a 0%, #FFD700 100%); height: 200px; display: flex; align-items: center; justify-content: center; border-radius: 8px; margin-bottom: 1rem; font-size: 2.5rem;">
+                        💕</div>
+                    <h4>The Way You Make Me Feel</h4>
+                    <p>Pure Love</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- THE NEIGHBOURHOOD ALBUM -->
+        <div class="album-content" id="nbhd-album">
+            <h3>I Love You. Goodbye. 🖤</h3>
+            <div class="album-grid">
+                <div class="album-card" style="border-color: #B0C4DE;">
+                    <div
+                        style="background: linear-gradient(135deg, #2d2d44 0%, #B0C4DE 100%); height: 200px; display: flex; align-items: center; justify-content: center; border-radius: 8px; margin-bottom: 1rem; font-size: 2.5rem;">
+                        🧥</div>
+                    <h4>Sweater Weather</h4>
+                    <p>The Anthem</p>
+                </div>
+                <div class="album-card" style="border-color: #B0C4DE;">
+                    <div
+                        style="background: linear-gradient(135deg, #B0C4DE 0%, #2d2d44 100%); height: 200px; display: flex; align-items: center; justify-content: center; border-radius: 8px; margin-bottom: 1rem; font-size: 2.5rem;">
+                        💔</div>
+                    <h4>Daddy Issues</h4>
+                    <p>Deep Truths</p>
+                </div>
+                <div class="album-card" style="border-color: #B0C4DE;">
+                    <div
+                        style="background: linear-gradient(135deg, #2d2d44 0%, #B0C4DE 100%); height: 200px; display: flex; align-items: center; justify-content: center; border-radius: 8px; margin-bottom: 1rem; font-size: 2.5rem;">
+                        😨</div>
+                    <h4>Afraid</h4>
+                    <p>Vulnerability</p>
+                </div>
+                <div class="album-card" style="border-color: #B0C4DE;">
+                    <div
+                        style="background: linear-gradient(135deg, #B0C4DE 0%, #2d2d44 100%); height: 200px; display: flex; align-items: center; justify-content: center; border-radius: 8px; margin-bottom: 1rem; font-size: 2.5rem;">
+                        🕊️</div>
+                    <h4>R.I.P. 2 My Youth</h4>
+                    <p>Growing Up</p>
+                </div>
+                <div class="album-card" style="border-color: #B0C4DE;">
+                    <div
+                        style="background: linear-gradient(135deg, #2d2d44 0%, #B0C4DE 100%); height: 200px; display: flex; align-items: center; justify-content: center; border-radius: 8px; margin-bottom: 1rem; font-size: 2.5rem;">
+                        💬</div>
+                    <h4>Honest</h4>
+                    <p>Real Talk</p>
+                </div>
+                <div class="album-card" style="border-color: #B0C4DE;">
+                    <div
+                        style="background: linear-gradient(135deg, #B0C4DE 0%, #2d2d44 100%); height: 200px; display: flex; align-items: center; justify-content: center; border-radius: 8px; margin-bottom: 1rem; font-size: 2.5rem;">
+                        🏎️</div>
+                    <h4>Ferrari</h4>
+                    <p>Fast Times</p>
+                </div>
+                <div class="album-card" style="border-color: #B0C4DE;">
+                    <div
+                        style="background: linear-gradient(135deg, #2d2d44 0%, #B0C4DE 100%); height: 200px; display: flex; align-items: center; justify-content: center; border-radius: 8px; margin-bottom: 1rem; font-size: 2.5rem;">
+                        🪞</div>
+                    <h4>Reflections</h4>
+                    <p>Look Inward</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CLOSING SECTION -->
+    <section id="closing">
+        <div>
+            <h2>Happy Birthday 🎂</h2>
+            <p>You deserved to be celebrated every single year you were alive. Better late than never. And for what it
+                is worth — I am glad you exist. The world is genuinely better with you in it. 🥹</p>
+            <div class="cat-icon">🐱</div>
+            <p style="color: #B0C4DE; margin-top: 2rem; font-size: 0.95rem;">Made with love, because you matter. Always.
+            </p>
+        </div>
+    </section>
+
+    <script>
+        // ===== GENERATE RANDOM STARS =====
+        function generateStars() {
+            const starsContainer = document.getElementById('stars');
+            const starCount = window.innerWidth > 768 ? 100 : 50;
+
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                starsContainer.appendChild(star);
+            }
+        }
+
+        // ===== TOGGLE HEAVY DAY MESSAGE =====
+        function toggleHeavyDayMessage() {
+            const message = document.getElementById('heavy-message');
+            message.classList.toggle('revealed');
+        }
+
+        // ===== ALBUM SWITCHING =====
+        function switchAlbum(album) {
+            // Hide all albums
+            document.querySelectorAll('.album-content').forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Remove active from all buttons
+            document.querySelectorAll('.album-tab-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // Show selected album
+            document.getElementById(album + '-album').classList.add('active');
+
+            // Add active to clicked button
+            event.target.classList.add('active');
+        }
+
+        // ===== SCROLL ANIMATIONS =====
+        function observeElements() {
+            const options = {
+                threshold: 0.3,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animation = 'fade-in 0.8s ease-in forwards';
+                    }
+                });
+            }, options);
+
+            document.querySelectorAll('.trait-card, .memory-card, .album-card').forEach(card => {
+                observer.observe(card);
+            });
+        }
+
+        // ===== SCROLL TO WARM BACKGROUND TRANSITION =====
+        function handleScroll() {
+            const sections = document.querySelectorAll('section');
+
+            sections.forEach((section, index) => {
+                const rect = section.getBoundingClientRect();
+                const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+
+                // Warm transition happens at "I See You" section (around 25% of scroll)
+                if (isVisible && section.id === 'see-you') {
+                    document.body.style.background = `linear-gradient(135deg, 
+                        rgba(10, 15, 44, 0.8) 0%, 
+                        rgba(45, 24, 16, 0.8) 50%, 
+                        rgba(10, 15, 44, 0.8) 100%), 
+                        linear-gradient(135deg, #2d1810 0%, #1a1f3a 100%)`;
+                }
+
+                // Return to blue at closing
+                if (section.id === 'closing') {
+                    document.body.style.background = `linear-gradient(135deg, #0a0f2c 0%, #1a1f3a 100%)`;
+                }
+            });
+        }
+
+        // ===== INITIALIZATION =====
+        window.addEventListener('DOMContentLoaded', () => {
+            generateStars();
+            observeElements();
+
+            window.addEventListener('scroll', () => {
+                handleScroll();
+            });
+
+            // Smooth scroll behavior
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+        });
+
+        // ===== HANDLE WINDOW RESIZE =====
+        window.addEventListener('resize', () => {
+            // Regenerate stars on resize if needed
+            if (window.innerWidth < 768 && document.querySelectorAll('.star').length > 50) {
+                document.getElementById('stars').innerHTML = '';
+                generateStars();
+            }
+        });
+    </script>
+</body>
+
+</html>

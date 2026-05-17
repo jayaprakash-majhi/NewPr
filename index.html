@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Birthday Means Something 🎂</title>
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Josefin+Sans:wght@400;600&family=DM+Sans:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <!-- BACKGROUND ANIMATION -->
+    <div class="background-container">
+        <div class="stars" id="stars"></div>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section id="hero">
+        <div>
+            <h1>𝓗𝓮𝔀𝓸𝓸 𝓑𝓲𝓻𝓽𝓱𝓭𝓪𝔂 𝓖𝓲𝓻𝓵🎂</h1>
+            <p class="subheading">Someone made this just for you.<br>No pressure. Just open it when you're ready.</p>
+            <div class="scroll-indicator">↓</div>
+        </div>
+    </section>
+
+    <!-- I SEE YOU SECTION -->
+    <section id="see-you">
+        <div class="card">
+            <h2 style="color: #89CFF0; text-shadow: 0 0 20px rgba(137, 207, 240, 0.3);">I See You</h2>
+            <p>I don't know everything you're going through right now. But I know you've been carrying a lot quietly.
+                And I just want you to know — someone notices. Not just today. Always.</p>
+        </div>
+    </section>
+
+    <!-- BIRTHDAY MESSAGE SECTION -->
+    <section id="message">
+        <div class="card">
+            <h2 style="color: #FFD700;">You Deserve This</h2>
+            <p>You deserve a birthday that actually feels like something. You deserve to feel chosen today. Even if just
+                for a little while — I hope today feels different. Because you matter more than you probably let
+                yourself believe.</p>
+        </div>
+    </section>
+
+    <!-- THINGS I KNOW SECTION -->
+    <section id="know">
+        <h2>Things I Know About You</h2>
+        <div class="traits-grid"> remove
+            <div class="trait-card" style="display: flex; justify-content: center;align-items: center;">
+                <p>You love going on long walks alone with your music on 🎵</p>
+            </div>
+            <div class="trait-card" style="display: flex; justify-content: center;align-items: center;">
+                <p>You have a thing for cats and they are honestly lucky 🐱</p>
+            </div>
+            <div class="trait-card" style="display: flex; justify-content: center;align-items: center;">
+                <p>Donuts, rasmalai, spicy chaat, sweets — basically your entire personality 🍩</p>
+            </div>
+            <div class="trait-card" style="display: flex; justify-content: center;align-items: center;">
+                <p>Glasses since class 3 and somehow it is an entire aesthetic 👓</p>
+            </div>
+            <div class="trait-card" style="display: flex; justify-content: center;align-items: center;">
+                <p>Rain hits different for you and we both know it 🌧️</p>
+            </div>
+            <div class="trait-card" style="display: flex; justify-content: center;align-items: center;">
+                <p>You are an absolute menace in CODM with that sniper — MVP energy always 🎮</p>
+            </div>
+            <div class="trait-card" style="display: flex; justify-content: center;align-items: center;">
+                <p>You tease your squadmates in the most chaotic friendly way 😭</p>
+            </div>
+            <div class="trait-card" style="display: flex; justify-content: center;align-items: center;">
+                <p>You are naughty with your close ones and that is honestly one of the best things about you</p>
+            </div>
+            <div class="trait-card" style="display: flex; justify-content: center;align-items: center;">
+                <p>You are stronger than you think — even on the days it really does not feel like it 🥲</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- HEAVY DAY SECTION -->
+    <section id="heavy-day">
+        <div>
+            <h2>For The Tough Days</h2>
+            <button onclick="toggleHeavyDayMessage()">Click this on a heavy day 🌙</button>
+            <div class="hidden-message" id="heavy-message">
+                <div class="card">
+                    <p>Hey. I know some days just feel too heavy to explain. That is okay. You do not have to be okay
+                        right now. Just know — someone out there is quietly in your corner. Always. You are not as alone
+                        as it feels.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MEMORIES SECTION -->
+    <section id="memories">
+        <h2>Our Memories Matter</h2>
+
+        <div class="memory-card">
+            <h3>The Birthday War 😭</h3>
+            <p>You once told me if you were my real life friend you would have actually celebrated my birthday. And then
+                proceeded to fight me to get my friends numbers just to scold them for not wishing me. Honestly the most
+                unhinged and wholesome thing anyone has ever done for me. 😭🫶</p>
+        </div>
+
+        <div class="memory-card">
+            <h3>The CODM Menace 🎮</h3>
+            <p>Remember our last private room match? Yeah. The one where you absolutely destroyed me. MVP. Sniper. Zero
+                remorse. You teased me the entire time and I had no defence whatsoever 😭 For the record — that rematch
+                is still pending. And this time? You are not getting away that easily. 😤 (You probably will. But let me
+                have this.)</p>
+        </div>
+
+        <div class="memory-card">
+            <h3>Late Night Squad 🌙</h3>
+            <p>Late night games, the chaos, the friendly trash talk, you somehow managing to be the most chaotic and
+                most fun person in the room at the same time. Those were genuinely some of the best nights. 🌙</p>
+        </div>
+
+        <div class="memory-card">
+            <h3>The Walks and The Rain 🌧️</h3>
+            <p>You and your walks. You and the rain. I hope wherever you go today — even if it is just outside for a bit
+                — it feels like yours. 🌧️</p>
+        </div>
+    </section>
+
+    <!-- ALBUM SECTION -->
+    <section id="albums" class="album-section">
+        <h2 style="margin-bottom: 0.5rem;">Your Loves</h2>
+        <p style="color: #B0C4DE; margin-bottom: 2rem;">A celebration of the things that make you, you</p>
+
+        <div class="album-tabs">
+            <button class="album-tab-button active" onclick="switchAlbum('gt')">GT 💛</button>
+            <button class="album-tab-button" onclick="switchAlbum('mj')">Michael Jackson 🕺</button>
+            <button class="album-tab-button" onclick="switchAlbum('nbhd')">The Neighbourhood 🖤</button>
+        </div>
+
+        <!-- GT ALBUM -->
+        <div class="album-content active gt-album" id="gt-album">
+            <h3>For The GT Fan Girl 💛</h3>
+            <div class="album-grid">
+                <div class="album-card">
+                    <div
+                        style="background: linear-gradient(135deg, #1f4788 0%, #FFD700 100%); height: 200px; display: flex; align-items: center; justify-content: center; border-radius: 8px; margin-bottom: 1rem; font-size: 3rem;">
+                        🏆</div>
+                    <h4>IPL 2022 Champions</h4>
+                    <p>Gujarat Titans' Maiden Glory</p>
+                </div>
+                <div class="album-card">
+                    <div
+                        style="background: linear-gradient(135deg, #FFD700 0%, #1f4788 100%); height: 200px; display: flex; align-items: center; justify-content: center; border-radius: 8px; margin-bottom: 1rem; font-size: 3rem;">
+                        🥈</div>
+                    <h4>IPL 2023 Runner Up</h4>
+                    <p>The Journey Continues</p>
+                </div>
+                <div class="album-card">
+                    <div
+                        style="background: linear-gradient(135deg, #0a5f7d 0%, #FFD700 100%); height: 200px; display: flex; align-items: center; justify-content: center; border-radius: 8px; margin-bottom: 1rem; font-size: 2.5rem;">
+                        🏏 ⚡</div>
+                    <h4>Shubhman Gill</h4>
+                    <p>Your Absolute Favourite 💙</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- MICHAEL JACKSON ALBUM -->
+        <div class="album-content" id="mj-album">
+            <h3>MJ Forever 🕺</h3>
+            <div class="album-grid">
+                <div class="album-card">
+                    <div
+                        style="background: linear-gradient(135deg, #1a1a1a 0%, #FFD700 100%); height: 200px; display: flex; align-items: center; justify-content: center; border-radius: 8px; margin-bottom: 1rem; font-size: 2.5rem;">
+                        🎵</div>
+                    <h4>Thriller</h4>
+                    <p>The Greatest Album</p>
+                </div>
+                <div class="album-card">
+                    <div
+                        style="background: linear-gradient(135deg, #FFD700 0%, #1a1a1a 100%); height: 200px; display: flex; align-items: center; justify-content: center; border-radius: 8px; margin-bottom: 1rem; font-size: 2.5rem;">
+                        👑</div>
+                    <h4>Billie Jean</h4>
+                    <p>Iconic. Legendary.</p>
+                </div>
+                <div class="album-card">
+                    <div
+                        style="background: linear-gradient(135deg, #1a1a1a 0%, #FFD700 100%); height: 200px; display: flex; align-items: center; justify-content: center; border-radius: 8px; margin-bottom: 1rem; font-size: 2.5rem;">
+                        ⚡</div>
+                    <h4>Beat It</h4>
+                    <p>Pure Energy</p>
+                </div>
+                <div class="album-card">
+                    <div
+                        style="background: linear-gradient(135deg, #FFD700 0%, #1a1a1a 100%); height: 200px; display: flex; align-items: center; justify-content: center; border-radius: 8px; margin-bottom: 1rem; font-size: 2.5rem;">
+                        🎸</div>
+                    <h4>Smooth Criminal</h4>
+                    <p>Smooth. Smooth. Smooth.</p>
+                </div>
+                <div class="album-card">
+                    <div
+                        style="background: linear-gradient(135deg, #1a1a1a 0%, #FFD700 100%); height: 200px; display: flex; align-items: center; justify-content: center; border-radius: 8px; margin-bottom: 1rem; font-size: 2.5rem;">
+                        🌍</div>
+                    <h4>Black or White</h4>
+                    <p>It Don't Matter</p>
+                </div>
+                <div class="album-card">
+                    <div
+                        style="background: linear-gradient(135deg, #FFD700 0%, #1a1a1a 100%); height: 200px; display: flex; align-items: center; justify-content: center; border-radius: 8px; margin-bottom: 1rem; font-size: 2.5rem;">
+                        💫</div>
+                    <h4>Man in the Mirror</h4>
+                    <p>Make a Change</p>
+                </div>
+                <div class="album-card">
+                    <div
+                        style="background: linear-gradient(135deg, #1a1a1a 0%, #FFD700 100%); height: 200px; display: flex; align-items: center; justify-content: center; border-radius: 8px; margin-bottom: 1rem; font-size: 2.5rem;">
+                        💕</div>
+                    <h4>The Way You Make Me Feel</h4>
+                    <p>Pure Love</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- THE NEIGHBOURHOOD ALBUM -->
+        <div class="album-content" id="nbhd-album">
+            <h3>I Love You. Goodbye. 🖤</h3>
+            <div class="album-grid">
+                <div class="album-card" style="border-color: #B0C4DE;">
+                    <div
+                        style="background: linear-gradient(135deg, #2d2d44 0%, #B0C4DE 100%); height: 200px; display: flex; align-items: center; justify-content: center; border-radius: 8px; margin-bottom: 1rem; font-size: 2.5rem;">
+                        🧥</div>
+                    <h4>Sweater Weather</h4>
+                    <p>The Anthem</p>
+                </div>
+                <div class="album-card" style="border-color: #B0C4DE;">
+                    <div
+                        style="background: linear-gradient(135deg, #B0C4DE 0%, #2d2d44 100%); height: 200px; display: flex; align-items: center; justify-content: center; border-radius: 8px; margin-bottom: 1rem; font-size: 2.5rem;">
+                        💔</div>
+                    <h4>Daddy Issues</h4>
+                    <p>Deep Truths</p>
+                </div>
+                <div class="album-card" style="border-color: #B0C4DE;">
+                    <div
+                        style="background: linear-gradient(135deg, #2d2d44 0%, #B0C4DE 100%); height: 200px; display: flex; align-items: center; justify-content: center; border-radius: 8px; margin-bottom: 1rem; font-size: 2.5rem;">
+                        😨</div>
+                    <h4>Afraid</h4>
+                    <p>Vulnerability</p>
+                </div>
+                <div class="album-card" style="border-color: #B0C4DE;">
+                    <div
+                        style="background: linear-gradient(135deg, #B0C4DE 0%, #2d2d44 100%); height: 200px; display: flex; align-items: center; justify-content: center; border-radius: 8px; margin-bottom: 1rem; font-size: 2.5rem;">
+                        🕊️</div>
+                    <h4>R.I.P. 2 My Youth</h4>
+                    <p>Growing Up</p>
+                </div>
+                <div class="album-card" style="border-color: #B0C4DE;">
+                    <div
+                        style="background: linear-gradient(135deg, #2d2d44 0%, #B0C4DE 100%); height: 200px; display: flex; align-items: center; justify-content: center; border-radius: 8px; margin-bottom: 1rem; font-size: 2.5rem;">
+                        💬</div>
+                    <h4>Honest</h4>
+                    <p>Real Talk</p>
+                </div>
+                <div class="album-card" style="border-color: #B0C4DE;">
+                    <div
+                        style="background: linear-gradient(135deg, #B0C4DE 0%, #2d2d44 100%); height: 200px; display: flex; align-items: center; justify-content: center; border-radius: 8px; margin-bottom: 1rem; font-size: 2.5rem;">
+                        🏎️</div>
+                    <h4>Ferrari</h4>
+                    <p>Fast Times</p>
+                </div>
+                <div class="album-card" style="border-color: #B0C4DE;">
+                    <div
+                        style="background: linear-gradient(135deg, #2d2d44 0%, #B0C4DE 100%); height: 200px; display: flex; align-items: center; justify-content: center; border-radius: 8px; margin-bottom: 1rem; font-size: 2.5rem;">
+                        🪞</div>
+                    <h4>Reflections</h4>
+                    <p>Look Inward</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CLOSING SECTION -->
+    <section id="closing">
+        <div>
+            <h2>Happy Birthday 🎂</h2>
+            <p>You deserved to be celebrated every single year you were alive. Better late than never. And for what it
+                is worth — I am glad you exist. The world is genuinely better with you in it. 🥹</p>
+            <div class="cat-icon">🐱</div>
+            <p style="color: #B0C4DE; margin-top: 2rem; font-size: 0.95rem;">Made with love, because you matter. Always.
+            </p>
+        </div>
+    </section>
+
+    <!-- External JavaScript -->
+    <script src="index.js"></script>
+</body>
+
+</html>
